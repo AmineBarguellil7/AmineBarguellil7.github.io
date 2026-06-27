@@ -33,19 +33,19 @@ export function CertificationsSection({
           <Reveal key={item.name} delay={index * 0.08} variant="zoom">
             <div data-gsap-card className="section-card h-full p-7">
               <div
-                className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/22 to-primary/22 text-primary"
-                style={{ animation: "pulse-glow 5s ease-in-out infinite", animationDelay: `${index * 0.9}s` }}
+                className="icon-gradient size-12"
+                style={{ animation: "soft-float 5s ease-in-out infinite", animationDelay: `${index * 0.9}s` }}
               >
                 <GraduationCap className="size-5" />
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-foreground">
+              <h3 className="mt-5 text-xl font-bold text-white">
                 {item.name}
               </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-sm font-light text-slate-300">
                 {item.issuer}
               </p>
-              <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/8 px-3 py-1.5 text-sm font-medium text-primary shadow-[0_0_0_3px_color-mix(in_oklab,var(--primary)_8%,transparent)]">
-                <CheckCircle2 className="size-4 text-primary" />
+              <div className="status-completed mt-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold">
+                <CheckCircle2 className="size-4 text-emerald-300" />
                 {item.status}
               </div>
             </div>

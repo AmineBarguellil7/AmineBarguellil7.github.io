@@ -24,7 +24,7 @@ export function SectionHeading({
       <div className="eyebrow self-start">{eyebrow}</div>
       <div className="space-y-4">
         {title ? (
-          <h2 className="font-display heading-gradient max-w-3xl text-3xl font-semibold tracking-[-0.05em] sm:text-4xl md:text-[2.8rem]">
+          <h2 className="font-display heading-gradient max-w-3xl text-3xl font-bold sm:text-4xl md:text-[2.8rem]">
             {title}
           </h2>
         ) : null}

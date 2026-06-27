@@ -51,16 +51,16 @@ export function SkillsSection({ categories }: SkillsSectionProps) {
               <div data-gsap-card className="section-card h-full p-7">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/22 to-primary/22 text-primary">
+                    <div className="icon-gradient size-12">
                       <Icon className="size-5" />
                     </div>
-                    <h3 className="mt-5 text-xl font-semibold text-foreground">
+                    <h3 className="mt-5 text-xl font-bold text-white">
                       {category.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                <p className="mt-4 text-sm font-light leading-7 text-slate-300">
                   {category.description}
                 </p>
 

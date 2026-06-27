@@ -33,7 +33,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 
       <div className="mt-12 grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch">
         <Reveal className="section-card p-7 sm:p-8" variant="fade-right">
-          <p className="text-xs font-semibold tracking-[0.26em] text-muted-foreground uppercase">
+          <p className="text-xs font-bold text-cyan-200 uppercase">
             Technologies I use
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -55,13 +55,13 @@ export function AboutSection({ about }: AboutSectionProps) {
             return (
               <Reveal key={item.title} delay={index * 0.09} variant="zoom">
                 <div data-gsap-card className="section-card h-full p-7">
-                  <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/22 to-primary/22 text-primary">
+                  <div className="icon-gradient size-12">
                     <Icon className="size-5" />
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold text-foreground">
+                  <h3 className="mt-5 text-xl font-bold text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  <p className="mt-3 text-sm font-light leading-7 text-slate-300">
                     {item.text}
                   </p>
                 </div>

@@ -31,28 +31,33 @@ export function Navbar({ navigation }: NavbarProps) {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50">
-      <div className="section-shell pt-5 pb-5">
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300",
+        scrolled && "bg-[#0a0a0f]/80 shadow-[0_18px_60px_-42px_rgba(99,102,241,0.58)]",
+      )}
+    >
+      <div className="section-shell py-3">
         <div
           data-gsap-nav
           className={cn(
-            "mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border px-4 py-3 transition-all duration-300 md:px-6",
+            "mx-auto flex max-w-6xl items-center justify-between gap-4 px-0 py-1 transition-all duration-300",
             scrolled
-              ? "border-border/90 bg-card/80 shadow-[0_18px_60px_-34px_rgba(15,23,42,0.7)] backdrop-blur-2xl"
-              : "border-border/60 bg-card/62 shadow-[0_12px_42px_-34px_rgba(15,23,42,0.45)] backdrop-blur-xl",
+              ? "text-white"
+              : "text-white",
           )}
         >
           <Link href="#home" className="flex min-w-0 items-center gap-3">
             <span
-              className="flex size-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#7ea2ff_0%,#7095f3_52%,#6b8fea_100%)] text-sm font-semibold text-white shadow-[0_18px_34px_-18px_rgba(107,143,234,0.58)]"
+              className="flex size-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#6366f1_0%,#8b5cf6_100%)] text-sm font-bold text-white shadow-[0_0_32px_-12px_rgba(99,102,241,0.95)]"
             >
               AB
             </span>
             <div className="min-w-0">
-              <p className="font-display truncate text-sm font-semibold tracking-[-0.03em] text-foreground">
+              <p className="font-display truncate text-sm font-bold text-white">
                 Amine Barguellil
               </p>
-              <p className="truncate text-xs text-muted-foreground">
+              <p className="truncate text-xs font-light text-slate-400">
                 Full-Stack Developer
               </p>
             </div>
@@ -63,7 +68,7 @@ export function Navbar({ navigation }: NavbarProps) {
               <a
                 key={item.href}
                 href={item.href}
-                className="nav-link rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:text-foreground"
+                className="nav-link rounded-full px-4 py-2 text-sm font-medium text-white/80 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_12px_rgba(99,102,241,0.95)]"
               >
                 {item.label}
               </a>
@@ -76,7 +81,7 @@ export function Navbar({ navigation }: NavbarProps) {
               href="#contact"
               className={cn(
                 buttonVariants({ variant: "default" }),
-                "h-10 rounded-full bg-[linear-gradient(135deg,#7ea2ff_0%,#7095f3_52%,#6b8fea_100%)] px-4 text-sm font-semibold text-white shadow-[0_16px_34px_-20px_rgba(107,143,234,0.62)] hover:brightness-105",
+                "btn-gradient btn-shimmer h-10 rounded-full px-4 text-sm font-bold transition-all duration-300 hover:-translate-y-0.5",
               )}
             >
               Let&apos;s Talk

@@ -16,20 +16,9 @@ export default function Home() {
       <GsapPortfolioEffects />
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-background" />
-        <div
-          data-gsap-ambient="violet"
-          className="ambient-orb absolute -left-28 top-16 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(111,124,255,0.24)_0%,rgba(111,124,255,0.08)_45%,transparent_75%)] blur-3xl"
-        />
-        <div
-          data-gsap-ambient="sky"
-          className="ambient-orb absolute right-[-7rem] top-[28rem] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(61,217,179,0.16)_0%,rgba(61,217,179,0.04)_58%,transparent_78%)] blur-3xl"
-        />
-        <div
-          data-gsap-ambient="blue"
-          className="ambient-orb absolute left-1/3 top-[72rem] h-[22rem] w-[22rem] rounded-full bg-[radial-gradient(circle,rgba(170,184,212,0.1)_0%,rgba(111,124,255,0.03)_60%,transparent_80%)] blur-3xl"
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),transparent_32%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_34%)]" />
-        <div className="soft-grid absolute inset-x-0 top-0 h-[92rem] opacity-[0.22] [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.9),transparent)]" />
+        <div className="hero-mesh absolute inset-x-0 top-0 h-[72rem] opacity-60 [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.9),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_32%)]" />
+        <div className="soft-grid absolute inset-x-0 top-0 h-[110rem] opacity-[0.18] [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.8),transparent)]" />
       </div>
       <Navbar navigation={portfolioData.navigation} />
       <main>

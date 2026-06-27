@@ -1,7 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type RevealProps = {
@@ -14,27 +13,12 @@ type RevealProps = {
   variant?: "fade-up" | "fade-left" | "fade-right" | "zoom" | "soft";
 };
 
-const revealVariants: Record<NonNullable<RevealProps["variant"]>, Variants> = {
-  "fade-up": {
-    hidden: { opacity: 0, y: 36, scale: 0.98, filter: "blur(8px)" },
-    visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
-  },
-  "fade-left": {
-    hidden: { opacity: 0, x: 36, scale: 0.985, filter: "blur(8px)" },
-    visible: { opacity: 1, x: 0, scale: 1, filter: "blur(0px)" },
-  },
-  "fade-right": {
-    hidden: { opacity: 0, x: -36, scale: 0.985, filter: "blur(8px)" },
-    visible: { opacity: 1, x: 0, scale: 1, filter: "blur(0px)" },
-  },
-  zoom: {
-    hidden: { opacity: 0, y: 20, scale: 0.92, filter: "blur(10px)" },
-    visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
-  },
-  soft: {
-    hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
-    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-  },
+const variantClass: Record<NonNullable<RevealProps["variant"]>, string> = {
+  "fade-up": "reveal-fade-up",
+  "fade-left": "reveal-fade-left",
+  "fade-right": "reveal-fade-right",
+  zoom: "reveal-zoom",
+  soft: "reveal-soft",
 };
 
 export function Reveal({
@@ -46,22 +30,50 @@ export function Reveal({
   once = true,
   variant = "fade-up",
 }: RevealProps) {
-  const shouldReduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+
+    if (!node) {
+      return;
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+
+          if (once) {
+            observer.unobserve(entry.target);
+          }
+        } else if (!once) {
+          setIsVisible(false);
+        }
+      },
+      { threshold: amount },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [amount, once]);
 
   return (
-    <motion.div
-      className={cn(className)}
-      initial={shouldReduceMotion ? false : "hidden"}
-      whileInView={shouldReduceMotion ? undefined : "visible"}
-      viewport={{ once, amount }}
-      variants={revealVariants[variant]}
-      transition={{
-        duration,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+    <div
+      ref={ref}
+      className={cn("reveal-on-scroll", variantClass[variant], isVisible && "is-visible", className)}
+      style={{
+        "--reveal-delay": `${delay}s`,
+        "--reveal-duration": `${duration}s`,
+      } as CSSProperties}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
