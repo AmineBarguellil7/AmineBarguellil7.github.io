@@ -21,10 +21,9 @@ export function Footer({ navigation, contact }: FooterProps) {
   ].filter((item) => item.href);
 
   return (
-    <footer className="pt-10 pb-10">
-      <div className="mb-10 h-px w-screen bg-gradient-to-r from-transparent via-white/10 to-transparent shadow-[0_0_28px_rgba(99,102,241,0.22)]" />
+    <footer className="pb-10 pt-6">
       <div className="section-shell">
-        <div className="px-2 text-sm font-light text-slate-400 md:flex md:items-center md:justify-between">
+        <div className="border-t border-white/15 pt-7 font-mono text-xs text-[#777870] md:flex md:items-center md:justify-between">
           <p>
             Copyright {new Date().getFullYear()}
           </p>
@@ -34,7 +33,7 @@ export function Footer({ navigation, contact }: FooterProps) {
               <a
                 key={item.href}
                 href={item.href}
-                className="transition-colors duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(99,102,241,0.8)]"
+                className="transition-colors duration-300 hover:text-primary"
               >
                 {item.label}
               </a>
@@ -45,7 +44,7 @@ export function Footer({ navigation, contact }: FooterProps) {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
-                className="transition-colors duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(6,182,212,0.75)]"
+                className="transition-colors duration-300 hover:text-primary"
               >
                 {item.label}
               </a>

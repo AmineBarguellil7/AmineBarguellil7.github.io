@@ -1,56 +1,21 @@
-import { CheckCircle2, GraduationCap } from "lucide-react";
+import { Check, GraduationCap } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
-type Certification = {
-  name: string;
-  issuer: string;
-  status: string;
-};
+type Certification = { name: string; issuer: string; status: string };
 
-type CertificationsSectionProps = {
-  items: readonly Certification[];
-};
-
-export function CertificationsSection({
-  items,
-}: CertificationsSectionProps) {
+export function CertificationsSection({ items }: { items: readonly Certification[] }) {
   return (
-    <section
-      id="certifications"
-      data-gsap-section
-      className="section-shell scroll-mt-24 py-24"
-    >
-      <Reveal variant="soft">
-        <SectionHeading
-          eyebrow="Certifications"
-          description="This section lists my certifications and completed credentials."
-        />
-      </Reveal>
-
-      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {items.map((item, index) => (
-          <Reveal key={item.name} delay={index * 0.08} variant="zoom">
-            <div data-gsap-card className="section-card h-full p-7">
-              <div
-                className="icon-gradient size-12"
-                style={{ animation: "soft-float 5s ease-in-out infinite", animationDelay: `${index * 0.9}s` }}
-              >
-                <GraduationCap className="size-5" />
-              </div>
-              <h3 className="mt-5 text-xl font-bold text-white">
-                {item.name}
-              </h3>
-              <p className="mt-2 text-sm font-light text-slate-300">
-                {item.issuer}
-              </p>
-              <div className="status-completed mt-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold">
-                <CheckCircle2 className="size-4 text-emerald-300" />
-                {item.status}
-              </div>
-            </div>
-          </Reveal>
-        ))}
+    <section id="certifications" className="section-shell section-space">
+      <Reveal><SectionHeading eyebrow="Credentials" title="Learning that compounds." description="Completed credentials that support the work—kept concise, verifiable, and connected to practice." /></Reveal>
+      <div className="mt-16 grid gap-px bg-white/15 p-px sm:grid-cols-2 xl:grid-cols-4">
+        {items.map((item, index) => <Reveal key={item.name} delay={index * .08} variant="zoom">
+          <article className="group relative min-h-64 overflow-hidden bg-[#12130f] p-7">
+            <div className="flex items-center justify-between"><GraduationCap className="size-5 text-primary transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110" /><span className="font-mono text-xs text-[#717269]">CERT—0{index + 1}</span></div>
+            <h3 className="mt-14 text-xl font-medium leading-snug">{item.name}</h3><p className="mt-2 text-sm text-[#888980]">{item.issuer}</p>
+            <div className="absolute inset-x-7 bottom-7 flex items-center gap-2 border-t border-white/15 pt-4 font-mono text-[.65rem] uppercase tracking-widest text-primary"><Check className="size-3" />{item.status}</div>
+          </article>
+        </Reveal>)}
       </div>
     </section>
   );

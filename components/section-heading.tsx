@@ -17,14 +17,14 @@ export function SectionHeading({
     <div
       data-gsap-heading
       className={cn(
-        "flex flex-col items-start gap-5",
+        "grid gap-5 border-t border-white/15 pt-5 md:grid-cols-[15rem_1fr]",
         align === "center" && "items-center text-center",
       )}
     >
       <div className="eyebrow self-start">{eyebrow}</div>
       <div className="space-y-4">
         {title ? (
-          <h2 className="font-display heading-gradient max-w-3xl text-3xl font-bold sm:text-4xl md:text-[2.8rem]">
+          <h2 className="font-display max-w-4xl text-4xl font-medium tracking-[-.04em] text-[#f1f0e9] sm:text-5xl md:text-6xl">
             {title}
           </h2>
         ) : null}

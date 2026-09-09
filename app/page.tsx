@@ -3,25 +3,20 @@ import { CertificationsSection } from "@/components/sections/certifications-sect
 import { ContactSection } from "@/components/sections/contact-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { Footer } from "@/components/sections/footer";
-import { GsapPortfolioEffects } from "@/components/gsap-portfolio-effects";
 import { HeroSection } from "@/components/sections/hero-section";
 import { Navbar } from "@/components/sections/navbar";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { SkillsSection } from "@/components/sections/skills-section";
 import { portfolioData } from "@/data/portfolio";
+import { CinematicExperience } from "@/components/cinematic/cinematic-experience";
 
 export default function Home() {
   return (
-    <div className="page-shell pb-16">
-      <GsapPortfolioEffects />
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-background" />
-        <div className="hero-mesh absolute inset-x-0 top-0 h-[72rem] opacity-60 [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.9),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_32%)]" />
-        <div className="soft-grid absolute inset-x-0 top-0 h-[110rem] opacity-[0.18] [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.8),transparent)]" />
-      </div>
+    <div className="page-shell">
+      <CinematicExperience />
       <Navbar navigation={portfolioData.navigation} />
-      <main>
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <main id="main-content">
         <HeroSection hero={portfolioData.hero} contact={portfolioData.contact} />
         <AboutSection about={portfolioData.about} />
         <SkillsSection categories={portfolioData.skillCategories} />

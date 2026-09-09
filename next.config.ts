@@ -7,6 +7,7 @@ const isUserSite = repositoryName.endsWith(".github.io");
 const basePath = isGithubPages && !isUserSite ? `/${repositoryName}` : "";
 
 const nextConfig: NextConfig = {
+  turbopack: { root: process.cwd() },
   reactCompiler: true,
   output: "export",
   trailingSlash: true,
