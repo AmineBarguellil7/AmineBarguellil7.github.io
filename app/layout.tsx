@@ -20,9 +20,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amine Barguellil | Full-Stack Developer",
+  title: "Amine Barguellil | Devops Engineer",
   description:
-    "Modern portfolio for Amine Barguellil, a full-stack developer building polished React, Node.js, DevOps, and AI-powered products.",
+    "Modern portfolio for Amine Barguellil, a devops engineer building polished React, Node.js, DevOps, and AI-powered products.",
 };
 
 export default function RootLayout({

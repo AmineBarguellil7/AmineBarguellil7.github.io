@@ -21,9 +21,9 @@ export function ExperienceSection({ items }: ExperienceSectionProps) {
     >
       <Reveal variant="soft">
         <SectionHeading
-          eyebrow="Experience / Timeline"
-          title="Practice, shipped into progress."
-          description="This timeline highlights my experience across internships and professional positions in software engineering and full-stack development."
+          eyebrow="Experience"
+          title="From learning the stack to owning the outcome"
+          description="A timeline of hands-on experience across full-stack development, cloud infrastructure, CI/CD, and production systems — from internships to shipping and maintaining real-world applications"
         />
       </Reveal>
 
@@ -50,9 +50,9 @@ export function ExperienceSection({ items }: ExperienceSectionProps) {
               </div>
               <div className="pl-12 md:pl-10">
                 <div
-                  className="border-t border-white/15 pt-6"
+                  className={`pt-6 ${index > 0 ? "border-t border-[#d5cdd4]" : ""}`}
                 >
-                  <p className="font-mono text-xs uppercase tracking-wider text-[#87887f]">
+                  <p className="text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">
                     {item.organization}
                   </p>
                   <h3 className="mt-3 text-2xl font-medium text-white md:text-3xl">

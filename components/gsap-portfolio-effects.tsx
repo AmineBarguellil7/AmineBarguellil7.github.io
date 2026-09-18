@@ -120,7 +120,6 @@ export function GsapPortfolioEffects() {
       });
       updateFinaleEntrance(finaleEntrance);
       gsap.to(".hero-title", { y: -100, scale: .88, opacity: 0, ease: "none", scrollTrigger: { trigger: "#home", start: "top top", end: "55% top", scrub: .65 } });
-      gsap.fromTo(".portrait-scene", { rotationY: -13, rotationZ: -4 }, { rotationY: 9, rotationZ: 3, ease: "none", scrollTrigger: { trigger: ".portrait-scene", start: "top bottom", end: "bottom top", scrub: 1 } });
       gsap.from(footer.querySelector(".section-shell"), { y: 40, opacity: 0, scrollTrigger: { trigger: footer, start: "top 95%", end: "top 70%", scrub: .5 } });
       const pointer = (event: PointerEvent) => {
         if (event.pointerType !== "mouse") return;

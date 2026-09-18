@@ -18,7 +18,7 @@ export default function Home() {
       <a href="#main-content" className="skip-link">Skip to content</a>
       <main id="main-content">
         <HeroSection hero={portfolioData.hero} contact={portfolioData.contact} />
-        <AboutSection about={portfolioData.about} />
+        <AboutSection about={portfolioData.about} stats={portfolioData.hero.stats} />
         <SkillsSection categories={portfolioData.skillCategories} />
         <ProjectsSection projects={portfolioData.projects} />
         <ExperienceSection items={portfolioData.experience} />
