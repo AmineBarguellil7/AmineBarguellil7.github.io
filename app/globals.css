@@ -192,13 +192,13 @@ header { background: #030a1940; backdrop-filter: blur(12px); }
 #certifications h3 { font-family: Georgia, serif; font-size: 1.8rem; }
 #certifications article p { color: #b9c8dd; }
 .contact-panel { background: transparent; background-image: none; color: #fff6e4; border: 0; backdrop-filter: none; box-shadow: none; }
-.contact-panel h2 { font-size: clamp(4rem, 8vw, 8rem); line-height: .98; }
+.contact-panel h2 { color: #fff6e4; font-size: clamp(4rem, 8vw, 8rem); line-height: .98; }
 .contact-panel h2 span { color: inherit; font-style: italic; }
 .contact-panel .contact-title,
 .contact-panel .contact-links { position: static; }
 .contact-panel p { color: #ded0da; }
 .contact-panel .contact-intro { color: #d4e1f4; }
-.contact-panel .contact-title > .eyebrow { color: #d4e1f4; }
+.contact-panel .contact-title > .eyebrow { color: var(--primary); }
 .contact-panel .contact-label { color: #fff; }
 .contact-panel > .eyebrow { color: var(--primary); font-size: .72rem; letter-spacing: .2em; }
 .contact-panel [class*="border-"] { border-color: #f6e4c533; }
